@@ -1,3 +1,2 @@
-fun main(args: Array<String>) {
-    println("Hello World!")
-}
+
+fun main(args: Array<String>) = DogFriends(accountId = 92832630).run()

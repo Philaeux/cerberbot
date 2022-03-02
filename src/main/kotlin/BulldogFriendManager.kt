@@ -92,8 +92,9 @@ class BulldogFriendManager(val accountId: Long) {
 
                 val (oldGameCount, name) = matchResult.destructured
                 val newValue = gameCounts.getOrDefault(nickname.steamID.accountID, 0)
-                if (oldGameCount.toInt() != newValue)
-                    SteamBot.modifyNickname(nickname.steamID, nickname.nickname, "${newValue}MC$name")
+                val newGameCount = if (newValue < 10) "0$newValue" else "$newValue"
+                if (oldGameCount != newGameCount)
+                    SteamBot.modifyNickname(nickname.steamID, nickname.nickname, "${newGameCount}MC$name")
             }
             SteamBot.waitForNicknameChanges()
 

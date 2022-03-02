@@ -14,14 +14,21 @@ repositories {
 }
 
 dependencies {
+    // Http client
     implementation("io.ktor:ktor-client-core:1.6.7")
     implementation("io.ktor:ktor-client-cio:1.6.7")
     implementation("io.ktor:ktor-client-gson:1.6.7")
+    // Logging
     implementation("org.slf4j:slf4j-simple:1.7.36")
     implementation("io.github.microutils:kotlin-logging-jvm:2.1.21")
+    // Rate limiter
     implementation("io.github.resilience4j:resilience4j-kotlin:1.7.1")
     implementation("io.github.resilience4j:resilience4j-ratelimiter:1.7.1")
-
+    // Steam java
+    implementation("org.bouncycastle:bcprov-jdk15on:1.69")
+    implementation("in.dragonbra:javasteam:1.1.0")
+    // Configuration
+    implementation("com.natpryce:konfig:1.6.10.0")
 
     testImplementation(kotlin("test"))
 }
@@ -35,5 +42,5 @@ tasks.withType<KotlinCompile> {
 }
 
 application {
-    mainClass.set("MainKt")
+    mainClass.set("BulldogFriendManagerKt")
 }

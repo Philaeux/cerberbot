@@ -25,7 +25,7 @@ dependencies {
     implementation("io.github.resilience4j:resilience4j-kotlin:1.7.1")
     implementation("io.github.resilience4j:resilience4j-ratelimiter:1.7.1")
     // Steam java
-    implementation("org.bouncycastle:bcprov-jdk15on:1.69")
+    implementation("org.bouncycastle:bcprov-jdk15on:1.70")
     implementation("in.dragonbra:javasteam:1.1.0")
     // Configuration
     implementation("com.natpryce:konfig:1.6.10.0")

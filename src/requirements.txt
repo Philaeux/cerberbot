@@ -3,3 +3,4 @@ alembic==1.12.1
 SQLAlchemy==2.0.22
 
 aiohttp==3.9.0b0
+discord.py==2.3.2

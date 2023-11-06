@@ -1,4 +1,11 @@
+# Project
+src/.env
+src/.venv
+
+docker.env
+src/cerberbot.ini
+src/cerberbot/database/sqlite.db
+
+# Others
 .idea
-.gradle
-build/
-src/main/resources/settings.properties
+__pycache__

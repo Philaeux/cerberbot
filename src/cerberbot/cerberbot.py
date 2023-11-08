@@ -1,7 +1,7 @@
 import asyncio
-
 import aiohttp
-import json
+
+import discord
 
 from cerberbot.cfg import cfg
 from cerberbot.database.database import Database
@@ -14,8 +14,13 @@ class CerberBot:
         self.cfg = cfg
         self.database = Database(check_migrations=True)
 
-    async def run(self):
-        await self.fetch_player_history()
+        self.intents = discord.Intents.default()
+        self.intents.messages = True
+        self.intents.message_content = True
+        self.client = DiscordClient(intents=self.intents)
+
+    def run(self):
+        self.client.run(self.cfg['Default']['DISCORD_TOKEN'])
 
     async def fetch_player_history(self):
         game_counts = {}
@@ -66,3 +71,15 @@ class GameCount:
     def __init__(self, id):
         self.id = id
         self.count = 1
+
+
+class DiscordClient(discord.Client):
+    async def on_ready(self):
+        print(f'We have logged in as {self.user}')
+
+    async def on_message(self, message):
+        if message.author == self.user:
+            return
+
+        if message.content.startswith('!addme'):
+            await message.channel.send('SOON')
